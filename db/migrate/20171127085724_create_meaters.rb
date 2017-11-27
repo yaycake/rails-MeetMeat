@@ -5,7 +5,7 @@ class CreateMeaters < ActiveRecord::Migration[5.0]
       t.string :last_name
       t.string :first_name
       t.string :display_name
-      t.string :user_category
+      t.string :user_category, default: "meeter"
       t.string :gender
       t.string :summary
       t.text :description

@@ -10,9 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171127090112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "meat_id"
+    t.integer  "meater_id"
+    t.text     "description"
+    t.string   "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "meaters", force: :cascade do |t|
+    t.string   "photo"
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "display_name"
+    t.string   "user_category"
+    t.string   "gender"
+    t.string   "summary"
+    t.text     "description"
+    t.string   "hobbies"
+    t.string   "education"
+    t.string   "nationality"
+    t.integer  "height"
+    t.integer  "weight"
+    t.string   "occupation"
+    t.string   "location"
+    t.integer  "price"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
 end

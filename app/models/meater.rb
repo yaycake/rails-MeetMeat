@@ -1,0 +1,2 @@
+class Meater < ApplicationRecord
+end

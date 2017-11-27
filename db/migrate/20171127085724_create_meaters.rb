@@ -1,0 +1,25 @@
+class CreateMeaters < ActiveRecord::Migration[5.0]
+  def change
+    create_table :meaters do |t|
+      t.string :photo
+      t.string :last_name
+      t.string :first_name
+      t.string :display_name
+      t.string :user_category
+      t.string :gender
+      t.string :summary
+      t.text :description
+      t.string :hobbies
+      t.string :education
+      t.string :nationality
+      t.integer :height
+      t.integer :weight
+      t.string :occupation
+      t.string :location
+      t.integer :price
+
+
+      t.timestamps
+    end
+  end
+end

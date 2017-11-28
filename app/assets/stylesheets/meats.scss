@@ -3,18 +3,30 @@
 .banner {
   background-position: center;
   background-size: cover;
+  height: 500px;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  color: white;
+  position: relative;
+}
 
+.banner_text
+{
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
 }
 
 
 // - - - - - - - - - - - MEATS CARDS
 
-@gray-darker:               #444444;
-@gray-dark:                 #696969;
-@gray:                      #999999;
-@gray-light:                #cccccc;
-@gray-lighter:              #ececec;
-@gray-lightest:             lighten(@gray-lighter,4%);
+$gray-darker:               #444444;
+$gray-dark:                 #696969;
+$gray:                      #999999;
+$gray-light:                #cccccc;
+$gray-lighter:              #ececec;
+$gray-lightest:             lighten($gray-lighter,4%);
 
 *,
 *::before,
@@ -26,18 +38,19 @@
 //   background-color: #f0f0f0;
 // }
 
-// body {
-//   color: @gray;
-//   font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
-//   font-style: normal;
-//   font-weight: 400;
-//   letter-spacing: 0;
-//   padding: 1rem;
-//   text-rendering: optimizeLegibility;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-//   -moz-font-feature-settings: "liga" on;
-// }
+body {
+  margin: 0;
+  color: $gray;
+  font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+}
 
 img {
   height: auto;
@@ -47,9 +60,9 @@ img {
 
 .btn {
   background-color: white;
-  border: 1px solid @gray-light;
+  border: 1px solid $gray-dark;
   //border-radius: 1rem;
-  color: @gray-dark;
+  color: $gray-dark;
   padding: 0.5rem;
   text-transform: lowercase;
 }
@@ -70,10 +83,10 @@ img {
 // .cards__item {
 //   display: flex;
 //   padding: 1rem;
-//   @media(min-width: 40rem) {
+//   $media(min-width: 40rem) {
 //     width: 50%;
 //   }
-//   @media(min-width: 56rem) {
+//   $media(min-width: 56rem) {
 //     width: 33.3333%;
 //   }
 // }
@@ -139,7 +152,7 @@ img {
 }
 
 .card__title {
-  color: @gray-dark;
+  color: $gray-dark;
   font-size: 1.25rem;
   font-weight: 300;
   letter-spacing: 2px;

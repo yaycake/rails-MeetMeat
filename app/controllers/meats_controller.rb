@@ -22,7 +22,7 @@ class MeatsController < ApplicationController
   private
 
   def set_meat
-    @meat = Meater.find(param[:id])
+    @meat = Meater.find(params[:id])
   end
 
   def meat_parameters

@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card__image">
+    <%= cl_image_tag meat.photo, crop: :fill %>
+  </div>
+  <div class="card__content">
+    <div class="card_header">
+      <span class="card__title">
+        <%= meat.display_name %>
+      </span>
+      <span class = "location_price">
+        <span><i class="fa fa-map-marker" aria-hidden="true"></i> <%= meat.location%></span>
+        <span><i class="fa fa-money" aria-hidden="true"></i> <%= meat.price %> per hour</span>
+      </span>
+    </div>
+    <div class="card__text">
+      <div class="card__summary"><%= meat.summary %></div>
+      <hr>
+    </div>
+    <button class="btn-card btn--block card__btn">MEET THIS MEAT</button>
+  </div>
+</div>

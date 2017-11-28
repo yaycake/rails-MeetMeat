@@ -1,0 +1,8 @@
+<%= simple_form_for @booking do |f| %>
+   <%= f.input :date %>
+   <%= f.input :description %>
+   <%= f.input :message %>
+   <%= f.button "Confirm booking", class: "btn btn-default btn-block text-center" %>
+
+  <%= link_to "Back to all Meats", meats_path, class: "btn btn-danger" %>
+<% end %>

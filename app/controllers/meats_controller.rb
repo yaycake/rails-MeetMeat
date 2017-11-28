@@ -1,4 +1,4 @@
-class MeatController < ApplicationController
+class MeatsController < ApplicationController
   before_action :set_meat, only: [:update, :edit, :show]
 
   def index

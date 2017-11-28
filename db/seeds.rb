@@ -13,7 +13,7 @@ PICTURES = ["http://www.89yn.com/me/myimagem/828554.jpg",
             "http://www.89yn.com/me/myimagem/803094.jpg",
             "https://cdn.shopify.com/s/files/1/1118/2334/products/Depositphotos_14430777_original_60bf1032-d69e-4ca1-9cb8-87c851a7ea25_grande.jpg?v=1483469893"]
 
-def generate_meat
+def generate_meat(category)
   p "creating a new profile"
   meat = Meater.new()
   meat.email = Faker::Internet.email
@@ -33,9 +33,13 @@ def generate_meat
   meat.price = 25 + (0..1500).to_a.sample
   meat.nationality = ["Chinese", "Russian", "French", "Americain", "Thai", "Somewhere"].sample
   meat.location = "Chengdu"
+  meat.user_category = category
   meat.save
 end
 
-5.times do
-  generate_meat
+10.times do
+  generate_meat("meat")
+end
+2.times do
+  generate_meat("meeter")
 end

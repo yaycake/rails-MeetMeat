@@ -1,22 +1,25 @@
 
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url("")">
-</div>
-<div class="container">
-  <h1>Meat#index</h1>
-</div>
-
-<p>Find me in app/views/meat/index.html.erb</p>
-
-<% @meats.each do |meat| %>
-<div class="col-xs-12 col-sm-4 col-xl-2">
-  <div class="tile">
-    <%= cl_image_tag meat.photo, height: 300, width: 400, crop: :fill  %>
-    <div class="text">
-      <h3><%= meat.display_name %></h3>
-      <p><%= meat.summary %></p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'banner_happy_chinese.jpg' %>')">
+  <div class="container">
+    <div class = "banner_text">
+      <h1> Make Mom & Pop Happy</h1>
+      <h4> Come home for Chinese New Year with a good future husband or wife.</h4>
     </div>
   </div>
 </div>
-<% end %>
 
+<% @meats.each do |meat| %>
+<div class="col-xs-12 col-sm-4 col-xl-2">
+    <div class="card">
+      <div class="card__image card__image--fence"></div>
+      <div class="card__content">
+        <div class="card__title"><%= meat.display_name %></div>
+        <div class="card__text">
+          <div><%= meat.summary %></div>
+          <span><%= meat.location%></span><span><%= meat.price %> per hour</span>
+        </div>
+        <button class="btn btn--block card__btn">Meet This Meat!</button>
+      </div>
+    </div>
+  <% end %>
+</div>

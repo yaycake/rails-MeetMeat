@@ -1,1 +1,26 @@
 <h1>This page exist</h1>
+
+<h2>MEAT</h2>
+<%= cl_image_tag @booking.meat.photo %>
+<%= @booking.meat.first_name %>
+<h2>MEATER</h2>
+<%= cl_image_tag @booking.meater.photo %>
+<%= @booking.meater.first_name %>
+<h2>MESSAGE</h2>
+<%= @booking.description %>
+
+<% if @booking.status == "sent" %>
+  <% if @current_meater == @booking.meat %>
+    <h2>Agree OR Refuse</h2>
+  <% elsif @current_meater == @booking.meater %>
+    <h2>PENDING</h2>
+  <% else %>
+    <h2>WHAT ARE YOU DOING HERE THIS IS PRIVATE BUSINESS</h2>
+  <% end %>
+<% elsif @booking.status == "rejected" %>
+
+<% elsif @booking.status == "accepted" %>
+
+<% elsif @booking.status == "confirmed" %>
+
+<% end %>

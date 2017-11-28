@@ -2,9 +2,6 @@ class MeetersController < ApplicationController
 
   before_action :set_meeter, only: [:show, :edit]
 
-  def index
-  end
-
   def new
     @meater = Meater.new
   end
@@ -17,6 +14,7 @@ class MeetersController < ApplicationController
   end
 
   def edit
+    @meater.update(meeter_parameters)
   end
 
   private

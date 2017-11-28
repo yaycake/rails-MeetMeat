@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20171128021048) do
     t.string   "last_name"
     t.string   "first_name"
     t.string   "display_name"
-    t.string   "user_category"
+    t.string   "user_category",          default: "meeter"
     t.string   "gender"
     t.string   "summary"
     t.text     "description"
@@ -41,14 +41,14 @@ ActiveRecord::Schema.define(version: 20171128021048) do
     t.string   "occupation"
     t.string   "location"
     t.integer  "price"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.string   "email",                  default: "",       null: false
+    t.string   "encrypted_password",     default: "",       null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,        null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"

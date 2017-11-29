@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card__image">
-    <%= cl_image_tag meat.photo, crop: :fill %>
+    <%= cl_image_tag meat.photo, transformation: { crop: :fit, gravity: :face } %>
   </div>
   <div class="card__content">
     <div class="card_header">

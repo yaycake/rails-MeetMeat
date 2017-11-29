@@ -1,13 +1,13 @@
 
-<h2>Hi, <%= current_meater.name %>: we're glad you're considering becoming meat. Someone's parents are going to be very happy to see you soon!</h2>
+<h2>Hi, <%= current_meater.display_name %>: we're glad you're considering becoming meat. Someone's parents are going to be very happy to see you soon!</h2>
 
-<%= simple_form_for @meater do |f| %>
+<%= simple_form_for(@meat) do |f| %>
 
 <div>
   <h3>Let's freshen up your meat profile!</h3>
   <h4>This information will provide an at-a-glance summary of how you're the best person they can bring home to show off.</h4>
 
-  <%= f.input :display_name, placeholder_name: %>
+  <%= f.input :display_name %>
   <%= f.input :gender %>
   <%= f.input :occupation %>
   <%= f.input :location %>

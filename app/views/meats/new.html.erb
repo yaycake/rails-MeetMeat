@@ -16,18 +16,17 @@
   <%= f.input :height %>
   <%= f.input :weight %>
   <%= f.input :hobbies %>
-
-
 </div>
+
 <div>
   <h3>Tell us a little more about yourself. What kind of person are you? What gets you excited?</h3>
   <%= f.input :summary, label: "We know it's hard, but sum up who you are in a couple of sentences."%>
   <%= f.input :description, label: "Here's your chance to add a bit more depth to your profile." %>
 </div>
+
 <div>
   <h3>And finally: what is your time worth? Please provide an hourly rate at which you are willing to become Chinese New Year meat.</h3>
-
   <%= f.input :price, label: "RMB per hour" %>
-
-  <%= f.button :submit %>
+  <%= f.button :submit, "Become Meat", class: "btn" %>
 <% end %>
+</div>

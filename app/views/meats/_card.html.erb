@@ -18,7 +18,9 @@
     <div class="card__text">
       <div class="card__summary"><%= meat.summary %></div>
     </div>
-    <button class="btn-card btn--block card__btn">点肉</button>
+    <%= link_to meat_path(meat) do %>
+      <button class="btn-card btn--block card__btn">点肉</button>
+    <% end %>
   </div>
 </div>
 

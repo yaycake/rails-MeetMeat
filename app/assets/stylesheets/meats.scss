@@ -203,3 +203,28 @@ i {
 hr {
   margin: 5px;
 }
+
+.main-profile {
+  background: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  margin: 0px;
+}
+
+.profile-content{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#image {
+  width: 800px;
+  position: sticky !important;
+  margin-right: 30px;
+
+}
+
+.details {
+  margin-top: 10px;
+
+}

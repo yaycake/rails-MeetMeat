@@ -1,10 +1,10 @@
 <% if current_meater == @booking.meat || current_meater == @booking.meater %>
   <h2>MEAT</h2>
   <%= cl_image_tag @booking.meat.photo %>
-  <%= @booking.meat.first_name %>
+  <%= @booking.meat.display_name %>
   <h2>MEATER</h2>
   <%= cl_image_tag @booking.meater.photo %>
-  <%= @booking.meater.first_name %>
+  <%= @booking.meater.display_name %>
   <h2>MESSAGE</h2>
   <%= @booking.description %>
 
@@ -33,6 +33,12 @@
       <h2>Wow! You managed to get a Meeter</h2>
     <% elsif current_meater == @booking.meater %>
        <h2>Wow! you finalized your booking! enjoy your meat!</h2>
+    <% end %>
+  <% elsif @booking.status == "cancelled" %>
+    <% if current_meater == @booking.meat %>
+      <h2>You cancelled the Meating!</h2>
+    <% elsif current_meater == @booking.meater %>
+       <h2>The Meater cancelled the Booking!</h2>
     <% end %>
   <% end %>
 <% else %>

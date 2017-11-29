@@ -1,4 +1,4 @@
-<% if @current_user == @booking.meat || @current_user == @booking.meater %>
+<% if current_meater == @booking.meat || current_meater == @booking.meater %>
   <h2>MEAT</h2>
   <%= cl_image_tag @booking.meat.photo %>
   <%= @booking.meat.first_name %>
@@ -9,29 +9,29 @@
   <%= @booking.description %>
 
   <% if @booking.status == "sent" %>
-    <% if @current_meater == @booking.meat %>
-        <%= link_to "Agree!", booking_path, class: 'btn btn-danger btn-lg'%>
-        <%= link_to "Refuse!", booking_path, class: 'btn btn-danger btn-lg'%>
-    <% elsif @current_meater == @booking.meater %>
+    <% if current_meater == @booking.meat %>
+        <%= button_to "Agree!", :action => "btn_agree", :method => :post %>
+        <%= button_to "Refuse!", :action => "btn_refuse", :method => :post %>
+    <% elsif current_meater == @booking.meater %>
         <h2>Waiting for meat decision</h2>
     <% end %>
   <% elsif @booking.status == "rejected" %>
-    <% if @current_meater == @booking.meat %>
+    <% if current_meater == @booking.meat %>
       <h2>You rejected the meeter offer</h2>
-    <% elsif @current_meater == @booking.meater %>
+    <% elsif current_meater == @booking.meater %>
        <h2>The meat rejected you</h2>
     <% end %>
-  <% elsif @booking.status == "accepted" %>
-    <% if @current_meater == @booking.meat %>
+  <% elsif @booking.status == "agreed" %>
+    <% if current_meater == @booking.meat %>
       <h2>Waiting for meeter final decision</h2>
-    <% elsif @current_meater == @booking.meater %>
-      <%= link_to "Finalize", meats_path, class: 'btn btn-danger btn-lg'%>
-      <%= link_to "Cancel", meats_path, class: 'btn btn-danger btn-lg'%>
+    <% elsif current_meater == @booking.meater %>
+      <%= button_to "Finalize", :action => "btn_finalize", :method => :post %>
+      <%= button_to "Cancel", :action => "btn_cancel", :method => :post %>
     <% end %>
-  <% elsif @booking.status == "confirmed" %>
-    <% if @current_meater == @booking.meat %>
+  <% elsif @booking.status == "finalized" %>
+    <% if current_meater == @booking.meat %>
       <h2>Wow! You managed to get a Meeter</h2>
-    <% elsif @current_meater == @booking.meater %>
+    <% elsif current_meater == @booking.meater %>
        <h2>Wow! you finalized your booking! enjoy your meat!</h2>
     <% end %>
   <% end %>

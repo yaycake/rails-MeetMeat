@@ -1,26 +1,41 @@
-<h1>This page exist</h1>
+<% if @current_user == @booking.meat || @current_user == @booking.meater %>
+  <h2>MEAT</h2>
+  <%= cl_image_tag @booking.meat.photo %>
+  <%= @booking.meat.first_name %>
+  <h2>MEATER</h2>
+  <%= cl_image_tag @booking.meater.photo %>
+  <%= @booking.meater.first_name %>
+  <h2>MESSAGE</h2>
+  <%= @booking.description %>
 
-<h2>MEAT</h2>
-<%= cl_image_tag @booking.meat.photo %>
-<%= @booking.meat.first_name %>
-<h2>MEATER</h2>
-<%= cl_image_tag @booking.meater.photo %>
-<%= @booking.meater.first_name %>
-<h2>MESSAGE</h2>
-<%= @booking.description %>
-
-<% if @booking.status == "sent" %>
-  <% if @current_meater == @booking.meat %>
-    <h2>Agree OR Refuse</h2>
-  <% elsif @current_meater == @booking.meater %>
-    <h2>PENDING</h2>
-  <% else %>
-    <h2>WHAT ARE YOU DOING HERE THIS IS PRIVATE BUSINESS</h2>
+  <% if @booking.status == "sent" %>
+    <% if @current_meater == @booking.meat %>
+        <%= link_to "Agree!", booking_path, class: 'btn btn-danger btn-lg'%>
+        <%= link_to "Refuse!", booking_path, class: 'btn btn-danger btn-lg'%>
+    <% elsif @current_meater == @booking.meater %>
+        <h2>Waiting for meat decision</h2>
+    <% end %>
+  <% elsif @booking.status == "rejected" %>
+    <% if @current_meater == @booking.meat %>
+      <h2>You rejected the meeter offer</h2>
+    <% elsif @current_meater == @booking.meater %>
+       <h2>The meat rejected you</h2>
+    <% end %>
+  <% elsif @booking.status == "accepted" %>
+    <% if @current_meater == @booking.meat %>
+      <h2>Waiting for meeter final decision</h2>
+    <% elsif @current_meater == @booking.meater %>
+      <%= link_to "Finalize", meats_path, class: 'btn btn-danger btn-lg'%>
+      <%= link_to "Cancel", meats_path, class: 'btn btn-danger btn-lg'%>
+    <% end %>
+  <% elsif @booking.status == "confirmed" %>
+    <% if @current_meater == @booking.meat %>
+      <h2>Wow! You managed to get a Meeter</h2>
+    <% elsif @current_meater == @booking.meater %>
+       <h2>Wow! you finalized your booking! enjoy your meat!</h2>
+    <% end %>
   <% end %>
-<% elsif @booking.status == "rejected" %>
-
-<% elsif @booking.status == "accepted" %>
-
-<% elsif @booking.status == "confirmed" %>
-
+<% else %>
+  <h2>Seems that you got lost... Meats are over there..</h2>
+  <%= link_to "More Meat!", meats_path, class: 'btn btn-danger btn-lg'%>
 <% end %>

@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show]
+  before_action :set_booking, only: [:show, :btn_agree, :btn_refuse, :btn_finalize, :btn_cancel]
+  helper_method :btn_agree, :btn_refuse, :btn_finalize, :btn_cancel
 
   def index
     @bookings = Booking.all
@@ -20,6 +21,30 @@ class BookingsController < ApplicationController
     else
       #add redirect
     end
+  end
+
+  def btn_agree
+    @booking.status = "agreed"
+    @booking.save
+    redirect_to booking_path(@booking)
+  end
+
+  def btn_refuse
+    @booking.status = "rejected"
+    @booking.save
+    redirect_to booking_path(@booking)
+  end
+
+  def btn_finalize
+    @booking.status = "finalized"
+    @booking.save
+    redirect_to booking_path(@booking)
+  end
+
+  def btn_cancel
+    @booking.status = "cancelled"
+    @booking.save
+    redirect_to booking_path(@booking)
   end
 
   private

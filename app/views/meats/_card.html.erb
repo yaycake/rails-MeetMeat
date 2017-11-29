@@ -1,7 +1,10 @@
+
 <div class="card">
+  <%= link_to meat_path(meat) do %>
   <div class="card__image">
-    <%= cl_image_tag meat.photo, transformation: { crop: :fit, gravity: :face } %>
+    <%= cl_image_tag meat.photo, transformation: { crop: :fit,  gravity: :face } %>
   </div>
+  <% end %>
   <div class="card__content">
     <div class="card_header">
       <span class="card__title">
@@ -14,8 +17,9 @@
     </div>
     <div class="card__text">
       <div class="card__summary"><%= meat.summary %></div>
-      <hr>
     </div>
-    <button class="btn-card btn--block card__btn">MEET THIS MEAT</button>
+    <button class="btn-card btn--block card__btn">点肉</button>
   </div>
 </div>
+
+

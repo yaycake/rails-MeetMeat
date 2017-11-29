@@ -1,0 +1,30 @@
+.booking_container{
+  background-color: $meat;
+  color: $tendon;
+  border-radius: 2px;
+
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.meats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.meater {
+  flex-direction: column;
+}
+
+.meat {
+  flex-direction: column;
+}
+
+.description {
+  text-align: center;
+}

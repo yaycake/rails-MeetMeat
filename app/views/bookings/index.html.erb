@@ -1,0 +1,14 @@
+<% @bookings.each do |b| %>
+  <% if b.meat == current_meater || b.meater == current_meater%>
+    <div >
+      <h2>MEAT NAME</h2>
+      <p><%= b.meat.display_name %></p>
+      <h2>MEETER NAME</h2>
+      <p><%= b.meater.display_name %></p>
+      <h2>STATUS</h2>
+      <p><%= b.status %></p>
+      <%= link_to "Booking", booking_path(b), class: 'btn btn-danger btn-lg'%>
+    </div>
+  <% end %>
+
+<% end %>

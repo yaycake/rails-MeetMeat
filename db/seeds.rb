@@ -37,9 +37,45 @@ def generate_meat(category)
   meat.save
 end
 
+#generate demo meat
+meat = meat = Meater.new()
+meat.email = "demo@gmail.com"
+meat.password = "secret"
+meat.first_name = Faker::Name.first_name
+meat.last_name = Faker::Name.last_name
+meat.remote_photo_url = PICTURES.sample
+meat.gender = ["male", "female", "unknown"].sample
+meat.age = 18 + (0..99).to_a.sample
+meat.weight = 50 + (0..50).to_a.sample
+meat.height = 145 + (0..50).to_a.sample
+meat.summary = Faker::RickAndMorty.quote
+meat.display_name = Faker::Pokemon.name
+meat.occupation = ["Just being Meat", "Restaurant Manager", "Beauty Pageant", "Allen Sanchez"].sample
+meat.education = Faker::University.name
+meat.description = Faker::Hipster.paragraphs(1, true).join(" ")
+meat.price = 25 + (0..1500).to_a.sample
+meat.nationality = ["Chinese", "Russian", "French", "Americain", "Thai", "Somewhere"].sample
+meat.location = "Chengdu"
+meat.user_category = "meat"
+meat.save
+
+def generate_booking
+  book = Booking.new()
+  book.meat = Meater.find(1)
+  book.meater = Meater.find((1..12).to_a.sample)
+  book.status = ["sent", "agreed", "rejected", "finalized", "cancel"].sample
+  book.description = Faker::RickAndMorty.quote
+  book.save
+end
+
+
 10.times do
   generate_meat("meat")
 end
 2.times do
   generate_meat("meeter")
+end
+
+3.times do
+  generate_booking
 end

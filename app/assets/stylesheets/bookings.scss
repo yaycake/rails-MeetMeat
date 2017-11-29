@@ -1,30 +1,80 @@
+.booking_wrapper {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  h4 {
+    color: $gold;
+  }
+}
+
 .booking_container{
   background-color: $meat;
-  color: $tendon;
-  border-radius: 2px;
-
+  color: $gold;
+  border-radius: 4px;
+  width: 600px;
+  font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: normal;
 }
 
 .logo {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid $tendon;
+  padding: 10px;
 }
 
 .meats {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 250px;
+  border-bottom: 1px solid $tendon;
 }
 
 .meater {
   flex-direction: column;
+  display: inline-block;
 }
 
 .meat {
   flex-direction: column;
+  display: inline-block;
 }
 
 .description {
   text-align: center;
+  min-height: 250px;
+}
+
+.booking_buttons {
+  padding: 0.5rem;
+  text-transform: lowercase;
+  letter-spacing: 3px;
+  display: inline-block;
+}
+
+.booking_buttons .button_to input {
+  background-color: $gold;
+  border: 0;
+  min-height: 9px;
+  padding: 10px 15px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+
+.status {
+  text-align: center;
+  padding: 10px 15px;
+  color: $meat;
+  background-color: #a52530;
+  border-bottom: 15px solid $meat;
+}
+
+.avatar {
+  border-radius: 50%
+  height: 50px
+  width: 50px
 }

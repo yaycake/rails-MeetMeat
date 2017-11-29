@@ -3,60 +3,77 @@
 <% if current_meater == @booking.meat || current_meater == @booking.meater %>
 
 
-<div class="wrapper">
+<div class="booking_wrapper">
   <div class="booking_container">
     <div class="logo">
-      <%= image_tag "logo_chinese-04.png" %>
+      <%= image_tag "logo_booking-05.png" %>
+      <h4>新年，鲜肉，幸福的家庭</h4>
     </div>
     <div class="meats">
       <div class="meater">
-        <%= cl_image_tag @booking.meater.photo %>
+        <%= cl_image_tag @booking.meater.photo, class: "avatar" %>
         <span> <%= @booking.meater.first_name %></span>
       </div>
       <div class="meat">
-        <%= cl_image_tag @booking.meat.photo %>
+        <%= cl_image_tag @booking.meat.photo, class: "avatar" %>
         <span><%= @booking.meat.display_name %></span>
       </div>
     </div>
     <div class="description">
-      <!-- Bookings description -->
-      <h2>Message:</h2>
+      <h4>Message:</h4>
       <%= @booking.description %>
     </div>
     <div class="status">
       <% if @booking.status == "sent" %>
         <% if current_meater == @booking.meat %>
-          <%= button_to "RSVP As The Meat", :action => "btn_agree", :method => :post, input_html: { class: 'btn-card'} %>
-          <%= button_to "Decline To Be Meat", :action => "btn_refuse", :method => :post %>
+          <div style="margin: 10px;">
+            <div class="booking_buttons">
+              <%= button_to "RSVP As The Meat", :action => "btn_agree", :method => :post %>
+            </div>
+            <div class="booking_buttons">
+              <%= button_to "Decline To Be Meat", :action => "btn_refuse", :method => :post %>
+            </div>
+          </div>
         <% elsif current_meater == @booking.meater %>
-          <h2>Waiting for meat decision</h2>
+          <h4>Awaiting the meat's RSVP</h4>
         <% end %>
       <% elsif @booking.status == "rejected" %>
         <% if current_meater == @booking.meat %>
-          <h2>You rejected the meeter offer</h2>
+          <h4>You politely declined.</h4>
         <% elsif current_meater == @booking.meater %>
-          <h2>Sorry, this meat is not for you.</h2>
-          <p><%= link_to "Shop for more meat", meats_path %></p>
-        <% end %>
+          <div class="status">
+            <h4>Sorry, this meat is not for you.</h4>
+            <p><%= link_to "Shop for more meat", meats_path %></p>
+            <% end %>
+          </div>
       <% elsif @booking.status == "agreed" %>
         <% if current_meater == @booking.meat %>
-          <h2>Waiting for meeter final decision</h2>
+
+          <div class="status">
+            <h4 style = "margin: 5px">Awaiting the meaty decision.</h4>
+          </div>
+
         <% elsif current_meater == @booking.meater %>
-          <%= button_to "Finalize", :action => "btn_finalize", :method => :post %>
-          <%= button_to "Cancel", :action => "btn_cancel", :method => :post %>
+          <div style="text-align: center; margin: 10px;">
+            <div class="booking_buttons">
+              <%= button_to "Finalize", :action => "btn_finalize", :method => :post %>
+            </div>
+            <div class="booking_buttons">
+              <%= button_to "Cancel", :action => "btn_cancel", :method => :post %>
+            </div>
+          </div>
         <% end %>
       <% elsif @booking.status == "finalized" %>
         <% if current_meater == @booking.meat %>
-          <h2>Wow! You managed to get a Meeter</h2>
+          <h4>Wow! You managed to get a Meeter</h4>
         <% elsif current_meater == @booking.meater %>
-          <h2>Wow! you finalized your booking! enjoy your meat!</h2>
+          <h4>Your order is confirmed! Your fresh meat will be delivered for you and your parents to enjoy.</h4>
         <% end %>
       <% end %>
     <% else %>
-      <h2>Seems that you got lost... Meats are over there..</h2>
+      <h4>Seems that you got lost! Meat's over there...</h4>
       <%= link_to "More Meat!", meats_path, class: 'btn btn-danger btn-lg'%>
   <% end %>
-      <!-- Where to put decision status or buttons -->
     </div>
   </div>
 </div>

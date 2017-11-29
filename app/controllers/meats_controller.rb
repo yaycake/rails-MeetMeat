@@ -2,15 +2,14 @@ class MeatsController < ApplicationController
   before_action :set_meat, only: [:update, :edit, :show]
 
   def index
-    @meats = Meater.where(user_category: "meat")
+    @meats = Meat.where(user_category: "meat")
   end
 
   def update
-    @meat.user_category = "Meat"
+    @meat = current_meater
+    @meat.user_category = "meat"
     @meat.update(meat_parameters)
-    #collect id of current meater (set_meat)
-    # change user category status to 'meat'
-    # add the rest of the attributes
+    redirect_to meat_path(current_meater)
   end
 
   def edit
@@ -22,11 +21,11 @@ class MeatsController < ApplicationController
   private
 
   def set_meat
-    @meat = Meater.find(params[:id])
+    @meat = Meat.find(params[:id])
   end
 
   def meat_parameters
-    param.require(:meater).permit(:gender, :summary, :description, :hobbies, :education, :nationality, :height, :weight, :occupation, :location, :price)
+    params.require(:meat).permit(:gender, :summary, :description, :hobbies, :education, :nationality, :height, :weight, :occupation, :location, :price)
   end
 
 end

@@ -10,16 +10,21 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
+    @meat = Meat.find(params[:meat_id])
+    @booking = @meat.bookings.new
   end
 
   def create
+    @meat = Meat.find(booking_params[:meat_id])
     @booking = Booking.new(booking_params)
+    @booking.meater = current_meater
+    @booking.meat = @meat
     @booking.status = "sent"
+    p @booking
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      #add redirect
+      render :new
     end
   end
 
@@ -54,6 +59,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:meat_id, :meater_id, :description)
+    params.require(:booking).permit(:meat_id, :description)
   end
 end

@@ -10,9 +10,8 @@
     <% if meater_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Become Meat", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Bookings", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Become Meat", edit_meat_path(current_meater), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">

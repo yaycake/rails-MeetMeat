@@ -1,6 +1,7 @@
-<%= simple_form_for @booking do |f| %>
+<%= simple_form_for(@booking) do |f| %>
    <%= f.input :description %>
    <%= f.button :submit %>
+   <%= f.input :meat_id, input_html: { value: @meat.id, type: 'hidden' }%>
 
   <%= link_to "Back to all Meats", meats_path, class: "btn btn-danger" %>
 <% end %>

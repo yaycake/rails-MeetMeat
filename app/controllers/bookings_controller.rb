@@ -28,26 +28,26 @@ class BookingsController < ApplicationController
     end
   end
 
-  def btn_agree
-    @booking.status = "agreed"
+  def agree
+    @booking.agree
     @booking.save
     redirect_to booking_path(@booking)
   end
 
-  def btn_refuse
-    @booking.status = "rejected"
+  def reject
+    @booking.reject
     @booking.save
     redirect_to booking_path(@booking)
   end
 
-  def btn_finalize
-    @booking.status = "finalized"
+  def finalize
+    @booking.finalize
     @booking.save
     redirect_to booking_path(@booking)
   end
 
-  def btn_cancel
-    @booking.status = "cancelled"
+  def cancel
+    booking.cancel
     @booking.save
     redirect_to booking_path(@booking)
   end

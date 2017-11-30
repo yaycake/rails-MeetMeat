@@ -1,46 +1,62 @@
-<body>
 
-  <!--- - - - - Main Profile Container  -->
-
-  <div class="main-profile">
-    <span class="main-profile">
-      <div id="image">
-        <img src="<%= @meat.photo %>">
+<div class="profile-wrapper">
+  <div class="main-profile-wrapper">
+    <div class="profile-image">
+      <%= cl_image_tag @meat.photo, transformation: { crop: :fit,  gravity: :face } %>
+    </div>
+    <div class="main-profile-content">
+      <div class="meat-display-name">
+        <h2>Hello, I'm <%= @meat.display_name %>!</h2>
       </div>
-
-
-    <!--- - - - - Summary  -->
-    <div class="profile-content">
-
-      <div class="display">
-        <div class="display-name">
-          <h1> <%= @meat.display_name %> </h1>
-        </div>
-        <div class="profile-text">
-          <p>  <%= @meat.gender %> <%= @meat.age %> </p>
-          <p> <%= @meat.location %> <%= @meat.price %> RMB </p>
-          <h3> Summary </h3>
-          <p> <%= @meat.summary %> </p>
-        </div>
-        <%= link_to "Book", new_meat_booking_path(@meat), class: 'btn btn-danger btn-lg'%>
-        </div>
-
-    <!--- - - Description   -->
-      <div class="details">
-        <h2> More about Meat </h2>
-        <p> Height: <%= @meat.height %> Weight: <%= @meat.weight %> </p>
-        <p> Nationality: <%= @meat.nationality %> </p>
-        <p> Occupation: <%= @meat.occupation %> </p>
-        <p> Education: <%= @meat.education %> </p>
-        <p> Hobbies: <%= @meat.hobbies %></p>
-        <div class="description" style="text-align: left">
-          <h2>  Meat Story </h2>
-          <p> <%= @meat.description %> </p>
-        </div>
+      <div class="gender_location_age">
+        <span>I am a <%= @meat.age %> year old <%= @meat.gender %> in <%= @meat.location %>.</span>
+        <p>Rate: <%= @meat.price %> RMB per hour</p>
+      </div>
+      <div class="self-summary">
+        <h4>My Self-Summary</h4>
+        <p><%= @meat.summary %></p>
+      </div>
+      <div class="button">
+        <%= link_to "Book #{@meat.display_name}", new_meat_booking_path(@meat), class: 'profile_book_button'%>
       </div>
     </div>
-   </span>
   </div>
+</div>
+<div class="white_wrapper">
+  <div class="profile-continued">
+  <div class="profile-stats">
+    <h4>My Stats</h4>
+    <table>
+      <tr>
+        <td><i class="fa fa-arrows-v" aria-hidden="true"></i> </td>
+        <td class="stat"> <%= @meat.height %> cm tall</td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-child" aria-hidden="true"></i></td>
+        <td class="stat"><%= @meat.weight %> kilos light</td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-suitcase" aria-hidden="true"></i></td>
+        <td class="stat" ><%= @meat.occupation %></td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-university" aria-hidden="true"></td>
+        <td class="stat"><%= @meat.nationality %></td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-flag" aria-hidden="true"></i></td>
+        <td class="stat"><%= @meat.education %></td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-heart" aria-hidden="true"></i></td>
+        <td class="stat">I like <%= @meat.hobbies %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="my-story">
+    <h4>My Meaty, Meaty Story</h4>
+    <p><%= @meat.description %></p>
+  </div>
+</div>
 
-</body>
-
+</div>

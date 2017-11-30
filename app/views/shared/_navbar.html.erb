@@ -10,7 +10,7 @@
     <% if meater_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Become Meat", edit_meat_path(current_meater), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Become Meat", become_meat_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
@@ -21,11 +21,6 @@
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
             <li>

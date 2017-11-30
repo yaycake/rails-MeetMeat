@@ -1,15 +1,25 @@
 class MeatsController < ApplicationController
-  before_action :set_meat, only: [:update, :edit, :show]
+  before_action :set_meat, only: [:edit, :show]
+
+  def new
+    # current_meater => # Meater
+
+    @meat = current_meater.becomes(Meat)
+  end
 
   def index
     @meats = Meat.where(user_category: "meat")
   end
 
   def update
-    @meat = current_meater
-    @meat.user_category = "meat"
-    @meat.update(meat_parameters)
-    redirect_to meat_path(current_meater)
+    @meat = current_meater.becomes(Meat)
+    param_hash = { user_category: 'meat' }.merge(meat_parameters)
+
+    if @meat.update(param_hash)
+      redirect_to meat_path(current_meater)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -25,7 +35,7 @@ class MeatsController < ApplicationController
   end
 
   def meat_parameters
-    params.require(:meat).permit(:gender, :summary, :description, :hobbies, :education, :nationality, :height, :weight, :occupation, :location, :price, :photo, :photo_cache)
+    params.require(:meat).permit(:gender, :summary, :description, :hobbies, :education, :nationality, :height, :weight, :occupation, :location, :price, :photo, :photo_cache, :display_name)
   end
 
 end

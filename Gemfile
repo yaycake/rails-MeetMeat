@@ -6,6 +6,7 @@ gem 'cloudinary'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
+gem 'omniauth-facebook'
 gem 'puma'
 gem 'rails', '5.0.6'
 gem 'redis'
@@ -18,7 +19,9 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'devise'
+gem 'aasm'
 gem 'faker'
+
 
 group :development, :test do
   gem 'pry-byebug'

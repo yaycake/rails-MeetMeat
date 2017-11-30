@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :show, :create]
 
   get "profile" => "meaters#profile"
+  get "profile/edit" => "meaters#editprofile"
   get '/become-meat' => 'meats#new', as: 'become_meat'
 
   post "meats/:id/edit" => "meats#update"

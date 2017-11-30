@@ -1,0 +1,12 @@
+<h2> this page exists </h2>
+<h1>EDIT YOUR MEETER PROFILE</h1>
+
+<%= simple_form_for(@meater) do |f| %>
+  <img src="<%= @meater.photo %>">
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.input :display_name %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+<% end %>
+

@@ -1,3 +1,46 @@
-<h2>PROFILE</h2>
-<%= @meater.display_name %>
-<img src="<%= @meater.photo %>">
+<div class="container">
+  <h2>MEETER PROFILE</h2>
+  <h2>YOUR MEETER PROFILE</h2>
+  <img src="<%= @meater.photo %>">
+  <h2><%= @meater.display_name %></h2>
+  <h4><%= current_meater.user_category %></h4>
+  <h5>Email: <%= @meater.email %></h5>
+  <h5>First Name: <%= @meater.first_name %></h5>
+  <h5>Last Name: <%= @meater.last_name %></h5>
+
+  <%= link_to "Edit my Profile", profile_edit_path, class: "btn btn-danger" %>
+
+
+  <% if current_meater.user_category == "meeter" %>
+    <p>We noticed you did not register as a meat</p>
+    <h2>BUTTON: REGISTER AS A MEAT</h2>
+  <% else %>
+    <h2>MEAT PROFILE</h2>
+    <div class="profile-content">
+
+      <div class="display">
+        <div class="display-name">
+          <h1> <%= @meater.display_name %> </h1>
+        </div>
+        <div class="profile-text">
+          <p>  <%= @meater.gender %> <%= @meater.age %> </p>
+          <p> <%= @meater.location %> <%= @meater.price %> RMB </p>
+          <h3> Summary </h3>
+          <p> <%= @meater.summary %> </p>
+
+    <!--- - - Description   -->
+      <div class="details">
+        <h2> More about Meat </h2>
+        <p> Height: <%= @meater.height %> Weight: <%= @meater.weight %> </p>
+        <p> Nationality: <%= @meater.nationality %> </p>
+        <p> Occupation: <%= @meater.occupation %> </p>
+        <p> Education: <%= @meater.education %> </p>
+        <p> Hobbies: <%= @meater.hobbies %></p>
+        <div class="description" style="text-align: left">
+          <h2>  Meat Story </h2>
+          <p> <%= @meater.description %> </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

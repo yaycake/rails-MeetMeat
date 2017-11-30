@@ -10,23 +10,31 @@
   padding: 0px;
   color: white;
   position: relative;
+
 }
 
 .banner_text
 {
   position: absolute;
-  bottom: 90px;
+  bottom: 100px;
   left: 0;
   right: 0;
   text-align: center;
-  text-shadow:
-  h1 {
-    color: $link;
-    font-size: 55px;
-    letter-spacing: 5px;
-  }
+
 }
 
+.banner_text h1 {
+  color: $link;
+  font-size: 89px;
+  letter-spacing: 6px;
+  }
+
+.banner_text h4 {
+  color: white;
+  font-size: 36px;
+  letter-spacing: 2px;
+
+}
 
 // - - - - - - - - - - - MEATS CARDS
 
@@ -54,7 +62,6 @@ body {
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
-  padding: 1rem;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -68,13 +75,27 @@ img {
 }
 
 .btn-card {
-  background-color: $meat;
-  border: 1px solid $meat;
+  position: absolute;
+  bottom: 145px;
+  background-color: $gold;
   //border-radius: 1rem;
-  color: $tendon;
-  padding: 0.5rem;
-  text-transform: lowercase;
-  letter-spacing: 3px;
+  color: $meat;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 0px;
+    color: $meat;
+    margin-bottom: 0px;
+  }
+  a {
+    text-decoration: none;
+  }
 }
 
 .btn--block {
@@ -111,26 +132,28 @@ img {
   overflow: hidden;
   max-width: 500px;
   margin-bottom: 20px;
-  &:hover {
-    .card__image {
-      filter: contrast(100%);
-    }
-  }
+
 }
 
 i {
-  color: $meat;
+  color: $gold;
+  font-size: 12px;
 }
 
 .card__content {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  padding: 1rem;
-  margin-top: 5px;
+  padding: 5px 10px;
+  border-bottom: 8px solid $gold;
+  align-items: center;
+  justify-content: center;
+  background-color: $meat;
+  color: $link;
 }
 
 .card__image {
+  border-top: 10px solid $meat;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -165,19 +188,17 @@ i {
   min-height: 100%
 }
 
-.card_header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-}
-
 .card__title {
   // color: $body;
-  font-size: 16px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: $meat;
+  color: $gold;
+  display: block;
+  margin: 3px;
+  h4 {
+    margin: 4px;
+    margin-top: 20px;
+  }
 }
 
 .card__text {
@@ -185,24 +206,30 @@ i {
   font-size: 12px;
   line-height: 1.5;
   margin-bottom: 1.25rem;
-  padding: 10px;
+}
 
-  .card__summary {
-    max-height: 80px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    height: 40px;
-  }
+.card__summary {
+  max-height: 80px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 40px;
+  line-height: 12px;
+  text-align: center;
 }
 
 .location_price {
   // align-items: center;
   font-size: 12px;
+  font-weight: bold;
+  margin: 5px;
 }
 
 hr {
   margin: 5px;
 }
+
+
+// - - - - - - - - - - - - - PROFILE SHOW
 
 .main-profile {
   background: white;

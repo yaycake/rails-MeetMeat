@@ -24,7 +24,7 @@
 }
 
 .banner_text h1 {
-  color: $link;
+  color: $gold;
   font-size: 89px;
   letter-spacing: 6px;
   }
@@ -76,8 +76,12 @@ img {
 
 .btn-card {
   position: absolute;
-  bottom: 145px;
-  background-color: $gold;
+  bottom: 143px;
+  // background-color: $gold;
+
+  background: -moz-linear-gradient(45deg, #edc554 0%, #edc554 51%, #f1e767 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #edc554 0%,#edc554 51%,#f1e767 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #edc554 0%,#edc554 51%,#f1e767 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   //border-radius: 1rem;
   color: $meat;
   border-radius: 50%;
@@ -137,18 +141,22 @@ img {
 
 i {
   color: $gold;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .card__content {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  padding: 5px 10px;
+  padding: 0px 10px;
   border-bottom: 8px solid $gold;
   align-items: center;
   justify-content: center;
-  background-color: $meat;
+  // background-color: $meat;
+  background: #bf030a; /* Old browsers */
+  background: -moz-linear-gradient(45deg, #bf030a 0%, #c1272d 45%, #bf3136 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #bf030a 0%,#c1272d 45%,#bf3136 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #bf030a 0%,#c1272d 45%,#bf3136 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   color: $link;
 }
 
@@ -197,7 +205,7 @@ i {
   margin: 3px;
   h4 {
     margin: 4px;
-    margin-top: 20px;
+    margin-top: 25px;
   }
 }
 

@@ -1,0 +1,79 @@
+.wrapper  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: #bf030a; /* Old browsers */
+  background: -moz-linear-gradient(45deg, #bf030a 0%, #c1272d 45%, #bf3136 100%);
+  background: -webkit-linear-gradient(45deg, #bf030a 0%,#c1272d 45%,#bf3136 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #bf030a 0%,#c1272d 45%,#bf3136 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.form_container {
+  text-align: center;
+  margin-top: 150px;
+  height: 600px;
+  top: 90px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  border-radius: 2px;
+  background: #bf030a; /* Old browsers */
+  background: -moz-linear-gradient(45deg, #bf030a 0%, #c1272d 45%, #bf3136 100%);
+  background: -webkit-linear-gradient(45deg, #bf030a 0%,#c1272d 45%,#bf3136 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #bf030a 0%,#c1272d 45%,#bf3136 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.signin_header {
+  display: block;
+  text-align: center;
+  h2 {
+    color: $gold;
+  }
+}
+
+.form_fields {
+  text-align: center;
+  margin: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.form_fields .button input {
+    background-color: $gold;
+    color: $meat;
+    font-size: 10px;
+}
+
+.email, .password {
+  width: 300px;
+  margin: 5px 10px;
+}
+
+.button {
+  color: $gold;
+}
+
+.button>.btn.btn-default {
+  color: $meat;
+  background: -moz-linear-gradient(45deg, #edc554 0%, #edc554 51%, #f1e767 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #edc554 0%,#edc554 51%,#f1e767 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #edc554 0%,#edc554 51%,#f1e767 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  border: 1px solid $gold;
+}
+
+.login_links {
+  color: $gold;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  a {
+    color: $link;
+  }
+  a:hover {
+    color: $gold;
+    text-decoration: none;
+  }
+}

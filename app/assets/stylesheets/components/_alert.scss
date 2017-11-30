@@ -11,7 +11,11 @@
   left: 0px;
   width: 100%;
   z-index:9999;
-  border-radius:0px
+  color: $meat;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 10px;
 }
 
 .alert_bars {
@@ -31,7 +35,10 @@
     left: 0px;
     width: 100%;
     z-index:9999;
-    border-radius:0px;
     background-color: $gold;
-    color: $gold;
+    color: $meat;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 10px;
 }

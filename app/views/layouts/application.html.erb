@@ -13,8 +13,12 @@
   <body>
     <%= render 'shared/navbar' %>
     <div class="alert_bars">
-      <p class="notice "><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if flash[:notice] %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if flash[:alert] %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
     </div>
     <%= yield %>
     <%= javascript_include_tag 'application' %>

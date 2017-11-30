@@ -2,18 +2,18 @@
 <div class="profile-wrapper">
   <div class="main-profile-wrapper">
     <div class="profile-image">
-      <%= cl_image_tag @meat.photo, transformation: { crop: :fit,  gravity: :face } %>
+      <%= cl_image_tag @meat.photo, transformation: { gravity: :face } %>
     </div>
     <div class="main-profile-content">
       <div class="meat-display-name">
-        <h2>Hello, I'm <%= @meat.display_name %>!</h2>
+        <h2>Hello, I'm <span class="display"><%= @meat.display_name %>!</span></h2>
       </div>
       <div class="gender_location_age">
         <span>I am a <%= @meat.age %> year old <%= @meat.gender %> in <%= @meat.location %>.</span>
-        <p>Rate: <%= @meat.price %> RMB per hour</p>
+        <p class="display"><i class="fa fa-money" aria-hidden="true"></i>  <%= @meat.price %>RMB per hour</p>
       </div>
       <div class="self-summary">
-        <h4>My Self-Summary</h4>
+        <h4 class="display">My Self-Summary</h4>
         <p><%= @meat.summary %></p>
       </div>
       <div class="button">
@@ -25,7 +25,7 @@
 <div class="white_wrapper">
   <div class="profile-continued">
   <div class="profile-stats">
-    <h4>My Stats</h4>
+    <h4 class="display">My Stats</h4>
     <table>
       <tr>
         <td><i class="fa fa-arrows-v" aria-hidden="true"></i> </td>
@@ -54,7 +54,7 @@
     </table>
   </div>
   <div class="my-story">
-    <h4>My Meaty, Meaty Story</h4>
+    <h4 class="display">My Meaty, Meaty Story</h4>
     <p><%= @meat.description %></p>
   </div>
 </div>

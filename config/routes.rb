@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :meaters
+  devise_for :meaters,
+    controllers: { omniauth_callbacks: 'meaters/omniauth_callbacks'}
 
   root 'meats#index'
   resources :meaters, only: [:show, :create]
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :show, :create]
 
   get "profile" => "meaters#profile"
+  get '/become-meat' => 'meats#new', as: 'become_meat'
+
   post "meats/:id/edit" => "meats#update"
   post "bookings/:id/agree" => "bookings#agree"
   post "bookings/:id/reject" => "bookings#reject"

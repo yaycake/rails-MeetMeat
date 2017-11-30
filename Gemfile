@@ -18,6 +18,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'devise'
+gem 'aasm'
 
 group :development, :test do
   gem 'pry-byebug'

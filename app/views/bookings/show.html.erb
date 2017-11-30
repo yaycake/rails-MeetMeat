@@ -1,5 +1,3 @@
-
-
 <% if current_meater == @booking.meat || current_meater == @booking.meater %>
 
 
@@ -24,7 +22,7 @@
       <%= @booking.description %>
     </div>
     <div class="status">
-      <% if @booking.status == "sent" %>
+      <% if @booking.sent? %>
         <% if current_meater == @booking.meat %>
           <div style="margin: 10px;">
             <div class="booking_buttons">
@@ -37,7 +35,7 @@
         <% elsif current_meater == @booking.meater %>
           <h4>Awaiting the meat's RSVP</h4>
         <% end %>
-      <% elsif @booking.status == "rejected" %>
+      <% elsif @booking.reject? %>
         <% if current_meater == @booking.meat %>
           <h4>You politely declined.</h4>
         <% elsif current_meater == @booking.meater %>
@@ -46,7 +44,7 @@
             <p><%= link_to "Shop for more meat", meats_path %></p>
             <% end %>
           </div>
-      <% elsif @booking.status == "agreed" %>
+      <% elsif @booking.agreed? %>
         <% if current_meater == @booking.meat %>
 
           <div class="status">
@@ -63,7 +61,7 @@
             </div>
           </div>
         <% end %>
-      <% elsif @booking.status == "finalized" %>
+      <% elsif @booking.finalized? %>
         <% if current_meater == @booking.meat %>
           <h4>Wow! You managed to get a Meeter</h4>
         <% elsif current_meater == @booking.meater %>

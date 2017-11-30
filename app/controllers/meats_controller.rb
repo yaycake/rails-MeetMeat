@@ -25,7 +25,7 @@ class MeatsController < ApplicationController
   end
 
   def meat_parameters
-    params.require(:meat).permit(:gender, :summary, :description, :hobbies, :education, :nationality, :height, :weight, :occupation, :location, :price)
+    params.require(:meat).permit(:gender, :summary, :description, :hobbies, :education, :nationality, :height, :weight, :occupation, :location, :price, :photo, :photo_cache)
   end
 
 end

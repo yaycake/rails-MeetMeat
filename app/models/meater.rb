@@ -12,12 +12,14 @@ class Meater < ApplicationRecord
   # validates :last_name, uniqueness: true, presence: true
   # validates :first_name, uniqueness: true, presence: true
   def self.find_for_facebook_oauth(auth)
-    p auth
+    # binding.pry
     meater_params = auth.slice(:provider, :uid)
     meater_params.merge! auth.info.slice(:email, :first_name, :last_name)
-    meater_params[:photo] = auth.info.image
+    meater_params[:email] = auth.info.email
+    meater_params[:email] ||= "facebook-#{auth.uid}@xinroukuaile.com"
     # meater_params[:token] = auth.credentials.token
     meater_params[:location] = auth.info.user_location
+    meater_params[:education] = auth.info.user_education_history
     # meater_params[:token_expiry] = Time.at(auth.credentials.expires_at)
     meater_params = meater_params.to_h
 
@@ -31,7 +33,14 @@ class Meater < ApplicationRecord
       meater.save
     end
 
+    meater.remote_photo_url = auth.info.image
+    meater.save
+
     return meater
   end
 
+  def avatar_url
+    photo_url || 'logo-03.png'
+    # photo_url || 'logo-03.png'
+  end
 end

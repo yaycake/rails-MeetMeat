@@ -228,46 +228,92 @@ hr {
 }
 
 
-// - - - - - - - - - - - - - PROFILE SHOW
+// - - - - - - - - - - - - - MEATS PROFILE SHOW
 
-.main-profile {
-  background: white;
-  padding: 10px;
+.profile-wrapper {
   display: flex;
-  // align-items: center;
-  margin: 0px;
-  // position: relative;
+  justify-content: center;
+  margin-top: 120px;
+  margin-bottom: 20px;
 }
 
-#image {
-  // position: absolute;
-  // top: 0;
-  // width: 800px;
-  margin-right: 30px;
-  margin-top: 50px;
-  margin-bottom: 200px;
-  // height: 400px;
+.white_wrapper {
+    display: flex;
+  justify-content: center;
+
+}
+
+.main-profile-wrapper, .profile-continued {
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+}
+
+.profile-image, .profile-stats {
   min-width: 300px;
   min-height: 300px;
-  max-height: 300px;
-  max-width: 300px;
-
-}
-.profile-content{
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 50px;
-
-}
-.details {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 10px 20px;
+  margin-right: 40px;
+  img {
+    width: 300px;
+    height: 300px;
+    border-radius: 2px;
+  }
 }
 
-
-.description {
-  margin-top: 20px;
-  text-align: none;
-
+.main-profile-content, .my-story{
+  margin: 10px 20px;
+  h2 {
+    margin-top: 5px;
+  }
 }
 
+.profile-stats {
+  margin-right: 40px;
+  h4 {
+    text-align: center;
+  }
+  div {
+    display: flex;
+    align-items: center;
+  }
+  i {
+    color: $meat;
+  }
+  .stat {
+    padding: 5px 10px;
+    padding-left: 40px;
+  }
+  table {
+    margin: 0 auto;
+  }
+}
+
+.self-summary {
+  margin-bottom: 25px;
+}
+
+.profile_book_button {
+  background-color: $meat;
+  color: $gold;
+  height: 40px;
+  width: 200px;
+  padding: 15px;
+  border-radius: 3px;
+  a:hover, a:visited, a:link, a:active  {
+    text-decoration: none;
+    color: $link;
+  }
+}
+
+.gender_location_age i {
+  color: $meat;
+}
+
+.display {
+  color: $meat;
+}
+
+.icon {
+ text-align: center;
+}

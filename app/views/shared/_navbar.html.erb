@@ -10,16 +10,18 @@
     <% if meater_signed_in? %>
 
       <!-- Links when logged in -->
+      <% if current_meater.user_category == "meeter"%>
       <%= link_to "Become Meat", become_meat_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% end %>
       <%= link_to "Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "logo-03.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag current_meater.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to profile_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
@@ -43,7 +45,7 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><a href="#">Home</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><%= link_to "Profile", profile_path %></li>
         <li><a href="#">Bookings</a></li>
         <li><a href="#">Messages</a></li>
         <li><a href="#">Become Meat</a></li>

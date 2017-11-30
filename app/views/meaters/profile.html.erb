@@ -1,3 +1,22 @@
-<h2>PROFILE</h2>
-<%= @meater.display_name %>
-<img src="<%= @meater.photo %>">
+<div class="container">
+  <h2>MEETER PROFILE</h2>
+  <h2>YOUR MEETER PROFILE</h2>
+  <img src="<%= @meater.photo %>">
+  <h2><%= @meater.display_name %></h2>
+  <h4><%= current_meater.user_category %></h4>
+  <h5>Email: <%= @meater.email %></h5>
+  <h5>First Name: <%= @meater.first_name %></h5>
+  <h5>Last Name: <%= @meater.last_name %></h5>
+
+  <%= link_to "Edit my Profile", profile_edit_path, class: "btn btn-danger" %>
+
+
+  <% if current_meater.user_category == "meeter" %>
+    <p>We noticed you did not register as a meat</p>
+    <h2>BUTTON: REGISTER AS A MEAT</h2>
+  <% else %>
+    <h2>MEAT PROFILE</h2>
+    <h2>SOME INFO ABOUT MEAT</h2>
+    <h3>BUTTON: I DO NOT WANT TO BE A MEAT ANYMORE</h3>
+  <% end %>
+</div>

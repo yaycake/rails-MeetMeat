@@ -21,6 +21,10 @@ class MeatersController < ApplicationController
     @meater = current_meater
   end
 
+  def editprofile
+    @meater = current_meater
+  end
+
   private
 
   def set_meeter

@@ -1,4 +1,4 @@
-class MeetersController < ApplicationController
+class MeatersController < ApplicationController
 
   before_action :set_meeter, only: [:show, :edit]
 
@@ -15,6 +15,10 @@ class MeetersController < ApplicationController
 
   def edit
     @meater.update(meeter_parameters)
+  end
+
+  def profile
+    @meater = current_meater
   end
 
   private

@@ -364,7 +364,7 @@ hr {
   padding-left: 40px;
 }
 
-.form-control.string.required, .form-control.string.optional, .form-control.numeric.integer.optional, .form-control.text.optional {
+.form-control.string.required, .form-control.string.optional, .form-control.numeric.integer.optional, .form-control.text.optional, .form-control.password.required {
   border: 1.5px solid $gold;
   margin-bottom: 20px;
   // max-width: 300px;

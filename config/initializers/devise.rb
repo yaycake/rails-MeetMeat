@@ -2,10 +2,19 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
-    scope: 'email',
-    info_fields: 'email', 'first_name', 'last_name',
-    image_size: 'square',  # 50x50, guaranteed ratio
+    # scope: 'email, first_name, last_name, education, location',
+    # info_fields: 'email, first_name, last_name, education, location',
+    # image_size: '500',
+    # image_aspect_ratio: 'square'
+    scope: 'email,public_profile,user_location, user_education_history, user_about_me',
+    info_fields: 'email, first_name, last_name, gender, location, education, about',
+    image_size: 'square',
     secure_image_url: true
+
+  # OmniAuth.config.logger = Rails.logger if Rails.env.development?
+  # OmniAuth.config.logger.level = Logger::DEBUG
+    #,
+    # secure_image_url: true, image_size: 'large'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.

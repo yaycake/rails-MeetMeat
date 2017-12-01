@@ -1,3 +1,14 @@
-<h1>J</h1>
-<h1>ADD PARTIAL</h1>
-<h2><%= @meat %></h2>
+<div class="signin_wrapper">
+  <div class="container">
+    <div class="join-us-header blue-text">
+      <h1> <strong class = "gold-text">Fresh Meat</strong>, Prosperous Year.  <span class = "gold-text">爽口, 丰年</span></h1>
+      <br>
+      <p><strong class = "gold-text text-center">Edit your Meat profile to make you more attractive to prospective Meaters</p>
+    </div>
+    <br>
+    <br>
+    <div>
+      <%= render partial: 'shared/become_meat_form', locals: { meat: @meat } %>
+    </div>
+  </div>
+</div>

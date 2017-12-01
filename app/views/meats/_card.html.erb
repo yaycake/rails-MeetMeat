@@ -1,25 +1,25 @@
-
-<div class="card">
-  <%= link_to meat_path(meat) do %>
-  <div class="card__image">
-    <%= cl_image_tag meat.photo, transformation: { crop: :fit,  gravity: :face } %>
-  </div>
-  <div class="card__content">
-      <div class="card__title">
-        <h4><%= meat.display_name %></h4>
-      </div>
-      <div class = "location_price">
-        <span><i class="fa fa-map-marker" aria-hidden="true"></i> <%= meat.location%></span>
-        <span><i class="fa fa-money" aria-hidden="true"></i> <%= meat.price %> per hour</span>
-      </div>
-    <div class="card__text">
-      <div class="card__summary"><%= meat.summary %></div>
+<% if current_meater.nil? || meat.id != current_meater.id %>
+  <div class="card">
+    <%= link_to meat_path(meat) do %>
+    <div class="card__image">
+      <%= cl_image_tag meat.photo, transformation: { crop: :fit,  gravity: :face } %>
     </div>
-    <div class = "btn-card">
-      <p>点肉</p>
+    <div class="card__content">
+        <div class="card__title">
+          <h4><%= meat.display_name %></h4>
+        </div>
+        <div class = "location_price">
+          <span><i class="fa fa-map-marker" aria-hidden="true"></i> <%= meat.location%></span>
+          <span><i class="fa fa-money" aria-hidden="true"></i> <%= meat.price %> per hour</span>
+        </div>
+      <div class="card__text">
+        <div class="card__summary"><%= meat.summary %></div>
+      </div>
+      <div class = "btn-card">
+        <p>点肉</p>
+      </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
-
+<% end %>
 

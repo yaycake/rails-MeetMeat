@@ -1,10 +1,20 @@
-<div class="container" style="margin-left: 300px">
-  <h1>Perfect Meat Date Starts Here</h1>
-  <p> Tell us more about your perfect date with Meat! 😍🍖😍</p>
-  <p> Please include date, role and meeting business</p>
-  <div class="row">
-    <div class="col-sm-8">
-      <%= render 'form' %>
+<div class="signin_wrapper" style = "margin-top: 90px;">
+  <div class="new_booking_wrapper">
+    <div class="booking_form_container">
+       <h1>恭喜发财, 鲜肉拿來</h1>
+        <h4 class="gold-text">Let's order some fresh meat!</h4>
+      <p class="blue-text">Tell us more about your plans: please include date, what to expect, time commitment, dress code, and any other details to make this a fun meat match!</p>
+      <div class="form_fields">
+        <%= simple_form_for(@booking) do |f| %>
+        <%= f.input :description, label: false, placeholder: "Message to Your Meat" %>
+        <%= f.input :meat_id, input_html: { value: @meat.id, type: 'hidden', label: false }%>
+        <div class="booking-buttons">
+          <%= f.button :submit, class: "new_bookings_button" %>
+          <% end %>
+          <br>
+          <span class="blue-text"><%= link_to "Back to all Meats", meats_path, class: "blue-text" %></span>
+        </div>
+      </div>
     </div>
   </div>
 </div>

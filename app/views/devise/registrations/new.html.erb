@@ -8,19 +8,22 @@
       <h2>新年，鲜肉，幸福的家庭</h2>
       <h2> Join us to unlock a relaxing Chinese New Year</h2>
     </div>
-    <div class="name">
-      <span class="first_name">
-        <%= f.input :first_name, required: true, label: false, placeholder: "First Name" %>
-      </span>
-      <span class="last_name">
-        <%= f.input :last_name, required: true, label: false, placeholder: "Last Name" %>
-      </span>
+    <div class="signin_form">
+      <div class="form_fields">
+        <span class="first_name">
+          <%= f.input :first_name, required: true, label: false, placeholder: "First Name" %>
+        </span>
+        <span class="last_name">
+          <%= f.input :last_name, required: true, label: false, placeholder: "Last Name" %>
+        </span>
+      </div>
+      <div class="form_fields">
+        <span class="email"><%= f.input :email, required: true, placeholder: "Email", label: false %></span>
+        <span class="password"><%= f.input :password, required: true, placeholder: "Password must be #{@minimum_password_length} characters min", label: false %></span>
+        <span class="password"><%= f.input :password_confirmation, required: true, label: false %></span>
+      </div>
     </div>
-    <div class="form_fields">
-      <span class="email"><%= f.input :email, required: true, placeholder: "Email", label: false %></span>
-      <span class="password"><%= f.input :password, required: true, placeholder: "Password must be #{@minimum_password_length} characters min", label: false %></span>
-      <span class="password"><%= f.input :password_confirmation, required: true, label: false %></span>
-    </div>
+
     <div class="button">
       <%= f.button :submit, "Sign up" %>
     </div>

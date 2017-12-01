@@ -9,6 +9,7 @@ Devise.setup do |config|
     scope: 'email,public_profile,user_location, user_education_history, user_about_me',
     info_fields: 'email, first_name, last_name, gender, location, education, about',
     image_size: 'square',
+
     secure_image_url: true
 
   # OmniAuth.config.logger = Rails.logger if Rails.env.development?

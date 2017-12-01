@@ -9,8 +9,9 @@ class Meater < ApplicationRecord
   has_many :meats, :through => :meaters, :source => :meat_id
   has_many :bookings
 
-  # validates :last_name, uniqueness: true, presence: true
-  # validates :first_name, uniqueness: true, presence: true
+  validates :last_name, uniqueness: true, presence: true
+  validates :first_name, uniqueness: true, presence: true
+  validates :gender, presence: true, inclusion: %w(m f)
   def self.find_for_facebook_oauth(auth)
     # binding.pry
     meater_params = auth.slice(:provider, :uid)
@@ -18,8 +19,10 @@ class Meater < ApplicationRecord
     meater_params[:email] = auth.info.email
     meater_params[:email] ||= "facebook-#{auth.uid}@xinroukuaile.com"
     # meater_params[:token] = auth.credentials.token
-    meater_params[:location] = auth.info.user_location
-    meater_params[:education] = auth.info.user_education_history
+    meater_params[:location] = auth.extra.raw_info.location.name
+    meater_params[:education] = auth.extra.raw_info.education.select { |e| e.type == 'College' || e.type == 'Graduate School' }.first.school.name
+    meater_params[:gender] = auth.extra.raw_info.gender.capitalize
+    meater_params[:summary] = auth.extra.raw_info.about
     # meater_params[:token_expiry] = Time.at(auth.credentials.expires_at)
     meater_params = meater_params.to_h
 
@@ -37,6 +40,16 @@ class Meater < ApplicationRecord
     meater.save
 
     return meater
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |meater|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        # meater.location = data["City"] if meater.user_location.blank?
+        meater.gender = data["Gender"] if meater.gender.blank?
+
+      end
+    end
   end
 
   def avatar_url

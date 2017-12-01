@@ -1,5 +1,6 @@
 class Meaters::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
+    # binding.pry
     meater = Meater.find_for_facebook_oauth(request.env['omniauth.auth'])
 
     if meater.persisted?

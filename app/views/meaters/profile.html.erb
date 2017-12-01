@@ -40,9 +40,10 @@
           <h4 class="display">My Self-Summary</h4>
           <p><%= @meater.summary %></p>
         </div>
-        <div class="button">
-          <%= link_to "Arrange my Meat", profile_meat_edit_path, class: "btn btn-danger" %>
-          <%= button_to "remove my meat", :action => "removemeat", :controller => "meats", :method => :post %>
+        <div class="profile_edit_buttons">
+          <%= link_to profile_meat_edit_path, class: "profile_button" do %>
+            <p style="font-size: 14px;">Edit my Meat Profile</p>
+          <% end %>
         </div>
       </div>
     </div>
@@ -77,6 +78,8 @@
           <td class="stat">I like <%= @meater.hobbies %></td>
         </tr>
       </table>
+      <br>
+      <div class="remove" style = "text-align:center;"> <span class="input_button"><%= button_to "remove my meat", :action => "removemeat", :controller => "meats", :method => :post %></span></div>
     </div>
     <div class="my-story">
       <h4 class="display">My Meaty, Meaty Story</h4>
@@ -86,4 +89,6 @@
 
   </div>
 <% end %>
+
+
 

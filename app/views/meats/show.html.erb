@@ -1,62 +1,67 @@
-
-<div class="profile-wrapper">
-  <div class="main-profile-wrapper">
-    <div class="profile-image">
-      <%= cl_image_tag @meat.photo, transformation: { gravity: :face } %>
+<% if @meat.id == current_meater.id %>
+  <h1>placeholder for navbar</h1>
+  <p>We know that you are really good meat, but don't you think booking yourself is a bit too meaty?</p>
+  <%= link_to "look at other meats", meats_path, class: 'btn btn-danger btn-lg'%>
+<% else %>
+  <div class="profile-wrapper">
+    <div class="main-profile-wrapper">
+      <div class="profile-image">
+        <%= cl_image_tag @meat.photo, transformation: { gravity: :face } %>
+      </div>
+      <div class="main-profile-content">
+        <div class="meat-display-name">
+          <h2>Hello, I'm <span class="display"><%= @meat.display_name %>!</span></h2>
+        </div>
+        <div class="gender_location_age">
+          <span>I am a <%= @meat.age %> year old <%= @meat.gender %> in <%= @meat.location %>.</span>
+          <p class="display"><i class="fa fa-money" aria-hidden="true"></i>  <%= @meat.price %>RMB per hour</p>
+        </div>
+        <div class="self-summary">
+          <h4 class="display">My Self-Summary</h4>
+          <p><%= @meat.summary %></p>
+        </div>
+        <div class="button">
+          <%= link_to "Book #{@meat.display_name}", new_meat_booking_path(@meat), class: 'profile_book_button'%>
+        </div>
+      </div>
     </div>
-    <div class="main-profile-content">
-      <div class="meat-display-name">
-        <h2>Hello, I'm <span class="display"><%= @meat.display_name %>!</span></h2>
-      </div>
-      <div class="gender_location_age">
-        <span>I am a <%= @meat.age %> year old <%= @meat.gender %> in <%= @meat.location %>.</span>
-        <p class="display"><i class="fa fa-money" aria-hidden="true"></i>  <%= @meat.price %>RMB per hour</p>
-      </div>
-      <div class="self-summary">
-        <h4 class="display">My Self-Summary</h4>
-        <p><%= @meat.summary %></p>
-      </div>
-      <div class="button">
-        <%= link_to "Book #{@meat.display_name}", new_meat_booking_path(@meat), class: 'profile_book_button'%>
-      </div>
+  </div>
+  <div class="white_wrapper">
+    <div class="profile-continued">
+    <div class="profile-stats">
+      <h4 class="display">My Stats</h4>
+      <table>
+        <tr>
+          <td class="icon"><i class="fa fa-arrows-v" aria-hidden="true"></i> </td>
+          <td class="stat"> <%= @meat.height %> cm tall</td>
+        </tr>
+        <tr>
+          <td class="icon"><i class="fa fa-child" aria-hidden="true"></i></td>
+          <td class="stat"><%= @meat.weight %> kilos light</td>
+        </tr>
+        <tr>
+          <td class="icon"><i class="fa fa-suitcase" aria-hidden="true"></i></td>
+          <td class="stat" ><%= @meat.occupation %></td>
+        </tr>
+        <tr>
+          <td class="icon"><i class="fa fa-university" aria-hidden="true"></td>
+          <td class="stat"><%= @meat.nationality %></td>
+        </tr>
+        <tr>
+          <td class="icon"><i class="fa fa-flag" aria-hidden="true"></i></td>
+          <td class="stat"><%= @meat.education %></td>
+        </tr>
+        <tr>
+          <td class="icon"><i class="fa fa-heart" aria-hidden="true"></i></td>
+          <td class="stat">I like <%= @meat.hobbies %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="my-story">
+      <h4 class="display">My Meaty, Meaty Story</h4>
+      <p><%= @meat.description %></p>
     </div>
   </div>
-</div>
-<div class="white_wrapper">
-  <div class="profile-continued">
-  <div class="profile-stats">
-    <h4 class="display">My Stats</h4>
-    <table>
-      <tr>
-        <td class="icon"><i class="fa fa-arrows-v" aria-hidden="true"></i> </td>
-        <td class="stat"> <%= @meat.height %> cm tall</td>
-      </tr>
-      <tr>
-        <td class="icon"><i class="fa fa-child" aria-hidden="true"></i></td>
-        <td class="stat"><%= @meat.weight %> kilos light</td>
-      </tr>
-      <tr>
-        <td class="icon"><i class="fa fa-suitcase" aria-hidden="true"></i></td>
-        <td class="stat" ><%= @meat.occupation %></td>
-      </tr>
-      <tr>
-        <td class="icon"><i class="fa fa-university" aria-hidden="true"></td>
-        <td class="stat"><%= @meat.nationality %></td>
-      </tr>
-      <tr>
-        <td class="icon"><i class="fa fa-flag" aria-hidden="true"></i></td>
-        <td class="stat"><%= @meat.education %></td>
-      </tr>
-      <tr>
-        <td class="icon"><i class="fa fa-heart" aria-hidden="true"></i></td>
-        <td class="stat">I like <%= @meat.hobbies %></td>
-      </tr>
-    </table>
-  </div>
-  <div class="my-story">
-    <h4 class="display">My Meaty, Meaty Story</h4>
-    <p><%= @meat.description %></p>
-  </div>
-</div>
 
-</div>
+  </div>
+<% end %>

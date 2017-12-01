@@ -25,6 +25,12 @@ class MeatersController < ApplicationController
     @meater = current_meater
   end
 
+  def update
+    @meater = current_meater
+    @meater.update(meeter_parameters)
+    redirect_to profile_path
+  end
+
   private
 
   def set_meeter

@@ -1,26 +1,22 @@
 <% if current_meater.user_category == "meeter" %>
+<div class="profile-wrapper">
   <div class="main-profile-wrapper">
       <div class="profile-image">
         <%= cl_image_tag @meater.photo, transformation: { gravity: :face } %>
       </div>
       <div class="main-profile-content">
         <div class="meat-display-name">
-          <h2><%= @meater.first_name %> <%= @meater.last_name %></span></h2>
+          <h2><%= @meater.first_name.capitalize %> <%= @meater.last_name.capitalize %></span></h2>
         </div>
         <div class="gender_location_age">
           <span><%= @meater.email %></span>
-          <p class="display"><i class="fa fa-money" aria-hidden="true"></i>  <%= @meater.price %>RMB per hour</p>
-        </div>
-        <div class="self-summary">
-          <h4 class="display">My Self-Summary</h4>
-          <p><%= @meater.summary %></p>
         </div>
         <div class="button">
           <%= link_to "Edit My Profile", profile_edit_path, class: 'profile_book_button'%>
         </div>
       </div>
   </div>
-
+</div>
 <% else %>
 
   <div class="profile-wrapper">
@@ -42,7 +38,7 @@
         </div>
         <div class="profile_edit_buttons">
           <%= link_to profile_meat_edit_path, class: "profile_button" do %>
-            <p style="font-size: 14px;">Edit my Meat Profile</p>
+            <p style="font-size: 14px;">Edit my Profile</p>
           <% end %>
         </div>
       </div>
@@ -79,7 +75,7 @@
         </tr>
       </table>
       <br>
-      <div class="remove" style = "text-align:center;"> <span class="input_button"><%= button_to "remove my meat", :action => "removemeat", :controller => "meats", :method => :post %></span></div>
+      <div class="remove" style = "text-align:center;"> <span class="input_button"><%= button_to "Stop Being Meat", :action => "removemeat", :controller => "meats", :method => :post %></span></div>
     </div>
     <div class="my-story">
       <h4 class="display">My Meaty, Meaty Story</h4>

@@ -9,6 +9,7 @@ class MeatsController < ApplicationController
 
   def index
     @meats = Meat.where(user_category: "meat")
+    @meats.delete(current_meater)
   end
 
   def update

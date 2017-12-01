@@ -19,7 +19,7 @@
                 </div>
               <div class="booking__text">
                 <div class="booking__status">
-                  <p><strong>Status: <%= b.status %></strong></p>
+                  <p><strong class="gold-text">Status: <%= b.status.upcase %></strong></p>
                 </div>
               <div class="booking_btn-card">
                 <%= link_to booking_path(b) do %>

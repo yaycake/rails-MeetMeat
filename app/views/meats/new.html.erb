@@ -1,34 +1,14 @@
-
-<h2>Hi, <%= current_meater.display_name %>: we're glad you're considering becoming meat. Someone's parents are going to be very happy to see you soon!</h2>
-
-<%= simple_form_for(@meat) do |f| %>
-
-<div>
-  <h3>Let's freshen up your meat profile!</h3>
-  <h4>This information will provide an at-a-glance summary of how you're the best person they can bring home to show off.</h4>
-
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.input :display_name %>
-  <%= f.input :gender %>
-  <%= f.input :occupation %>
-  <%= f.input :location %>
-  <%= f.input :education %>
-  <%= f.input :nationality %>
-  <%= f.input :height %>
-  <%= f.input :weight %>
-  <%= f.input :hobbies %>
-</div>
-
-<div>
-  <h3>Tell us a little more about yourself. What kind of person are you? What gets you excited?</h3>
-  <%= f.input :summary, label: "We know it's hard, but sum up who you are in a couple of sentences."%>
-  <%= f.input :description, label: "Here's your chance to add a bit more depth to your profile." %>
-</div>
-
-<div>
-  <h3>And finally: what is your time worth? Please provide an hourly rate at which you are willing to become Chinese New Year meat.</h3>
-  <%= f.input :price, label: "RMB per hour" %>
-  <%= f.button :submit, "Become Meat", class: "btn" %>
-<% end %>
+<div class="wrapper">
+  <div class="container">
+    <div class="join-us-header">
+      <h1>Fresh Meat, Prosperous Year. 爽口, 丰年</h1>
+      <p><strong>Becoming meat</strong> is a test of an open mind and a thirst for adventure. Why not get paid to make new friends?</p>
+    </div>
+    <div class="instructions">
+      <p>Fill out the following information to provide the best experience for both you and your matched host.</p>
+    </div>
+    <div>
+      <%= render partial: 'shared/become_meat_form', locals: { meat: @meat } %>
+    </div>
+  </div>
 </div>

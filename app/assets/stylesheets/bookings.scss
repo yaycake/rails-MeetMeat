@@ -8,12 +8,14 @@
 }
 
 .booking_container{
+  margin-top: 80px;
   background-color: $meat;
   color: $gold;
   border-radius: 4px;
   width: 600px;
   font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
   font-style: normal;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
 }
 
 .logo {
@@ -21,8 +23,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid $tendon;
+  // border-bottom: 1px solid $tendon;
   padding: 10px;
+  position: relative;
+  h4 {
+    z-index: 9999;
+    position: absolute;
+    bottom: 20px;
+  }
 }
 
 .meats {
@@ -30,7 +38,7 @@
   align-items: center;
   justify-content: space-between;
   min-height: 250px;
-  border-bottom: 1px solid $tendon;
+  // border-bottom: 1px solid $tendon;
   text-align: center;
 }
 
@@ -54,7 +62,7 @@
 
 .description {
   text-align: center;
-  min-height: 250px;
+  min-height: 200px;
 }
 
 .booking_buttons {
@@ -74,7 +82,7 @@
 }
 
 
-.status {
+.booking_status {
   text-align: center;
   padding: 10px 15px;
   color: $meat;
@@ -82,26 +90,29 @@
   border-bottom: 15px solid $meat;
 }
 
-.avatar {
+.booking_avatar {
   border-radius: 50%;
   height: 120px;
   width: 120px;
-  border: 2px solid $gold;
+  border: 3px solid $gold;
 }
 
 
 // - - - - - - - - - -- -- - BOOKING INDEX
 .bookings_header {
   text-align: center;
-  margin-top: 100px;
   margin-bottom: 50px;
 }
 
 .bookings_wrapper {
   margin-top: 90px;
-  margin: 0 auto;
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
 }
+
 
 
 
@@ -124,6 +135,7 @@
   flex-direction: column;
   overflow: hidden;
   max-width: 500px;
+  margin: 0 auto;
   margin-bottom: 20px;
   text-align: center;
   position: relative;

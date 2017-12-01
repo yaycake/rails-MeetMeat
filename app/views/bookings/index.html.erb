@@ -1,39 +1,37 @@
 
 <div class="bookings_wrapper">
   <div class="bookings_header">
-    <h1 class = "display"> 我点的鲜肉 Your Meat Orders</h1>
+    <h1 class = "display"> 新年，鲜肉</h1>
+    <h4> New Year, Fresh Meat</h4>
   </div>
-  <div class="row">
-      <div class="col-xs-12 col-sm-4 offset-col-3">
+
+
         <% @bookings.each do |b| %>
           <% if b.meat == current_meater || b.meater == current_meater%>
           <div class="booking">
-
             <div class="booking__content">
-                <div class="booking__title">
-                  <% if b.meat == current_meater %>
-                    <h4>You have been ordered</h4>
+              <div class="booking__title">
+                <% if b.meat == current_meater %>
+                  <h4>You have been ordered</h4>
                   <% else %>
-                    <h4>You ordered <%= b.meat.display_name %></h4>
+                  <h4>You ordered <%= b.meat.display_name %></h4>
                   <% end %>
-                </div>
-                <div class = "location_price">
-                  <span><i class="fa fa-map-marker" aria-hidden="true"></i> <%= b.meat.location%></span>
-                  <span><i class="fa fa-money" aria-hidden="true"></i> <%= b.meat.price %> per hour</span>
-                </div>
+              </div>
+              <div class = "location_price">
+                <span><i class="fa fa-map-marker" aria-hidden="true"></i> <%= b.meat.location%></span>
+                <span><i class="fa fa-money" aria-hidden="true"></i> <%= b.meat.price %> per hour</span>
+              </div>
               <div class="booking__text">
                 <div class="booking__status">
                   <p><strong class="gold-text">Status: <%= b.status.upcase %></strong></p>
                 </div>
+              </div>
               <div class="booking_btn-card">
                 <%= link_to booking_path(b) do %>
                 <p>View</p>
                 <% end %>
               </div>
-              </div>
-
             </div>
-
              <div class="booking__image">
               <%= cl_image_tag b.meat.photo, transformation: { crop: :fit,  gravity: :face } %>
             </div>
@@ -41,8 +39,8 @@
           </div>
         <% end %>
         <% end %>
-      </div>
-  </div>
+
+
 </div>
 </div>
 

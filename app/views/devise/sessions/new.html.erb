@@ -14,6 +14,8 @@
         <%= f.input :password, required: true, label: false, placeholder: "Password" %>
       </span>
     </div>
+
+
     <div class="button">
       <span><%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </span>
@@ -22,6 +24,8 @@
     <div class = "login_links">
       <br>
       <span><%= link_to "Don't have a login? Sign Up!", new_meater_registration_path %></span>
+      <br>
+      <span><%= link_to "Log in with Facebook", meater_facebook_omniauth_authorize_path %></span>
       <br>
       <span><%= link_to "Forgot your password?", new_meater_password_path %></span>
     </div>

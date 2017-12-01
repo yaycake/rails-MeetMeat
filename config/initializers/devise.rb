@@ -3,7 +3,7 @@
 Devise.setup do |config|
   config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
     scope: 'email',
-    info_fields: 'email, first_name, last_name',
+    info_fields: 'email', 'first_name', 'last_name',
     image_size: 'square',  # 50x50, guaranteed ratio
     secure_image_url: true
   # The secret key used by Devise. Devise uses this key to generate
@@ -17,7 +17,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'contact@meetmeat.com'
+  config.mailer_sender = 'contact@xinrou.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

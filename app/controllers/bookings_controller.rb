@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :btn_agree, :btn_refuse, :btn_finalize, :btn_cancel]
-  helper_method :btn_agree, :btn_refuse, :btn_finalize, :btn_cancel
+  before_action :set_booking, only: [:show, :agree, :reject, :finalize, :cancel]
+  helper_method :agree, :reject, :finalize, :cancel
 
   def index
     @bookings = Booking.all

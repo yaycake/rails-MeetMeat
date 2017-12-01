@@ -3,7 +3,7 @@
   <%= simple_form_for(@meat) do |f| %>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm col-md-4">
+      <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="meats_form">
           <div class="photo_upload">
             <span><p><strong>Photo: </strong></p></span>
@@ -17,7 +17,7 @@
           </div>
 
       </div>
-      <div class="col-xs-12 col-sm col-md-4">
+      <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="meats_form">
             <%= f.input :height, label: false, placeholder: "Height in cm" %>
             <%= f.input :weight, label: false, placeholder: "Weight in kilos" %>
@@ -27,23 +27,18 @@
         </div>
 
       </div>
-      <div class="col-xs-12 col-sm col-md-4">
-          <div class="meats-form-fields">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="meats_form">
 
             <%= f.input :summary, label: false, placeholder: "Self-Summary" %>
             <%= f.input :description, label: false, placeholder: "Tell us more about yourself." %>
-          </div>
-        </div>
-
-          <div class="row">
-            <div class="col-xs-12 col-sm col-md-4">
-              <div class="button">
+            <div class="button">
                 <%= f.button :submit, "Become Meat", class: "btn" %>
                 <% end %>
 
               </div>
-            </div>
           </div>
+        </div>
       </div>
     </div>
   </div>

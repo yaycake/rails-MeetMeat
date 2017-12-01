@@ -314,14 +314,26 @@ hr {
   color: $meat;
 }
 
+.blue-text {
+  color: $link;
+}
+
+.gold-text {
+  color: $gold
+}
+
 .icon {
  text-align: center;
 }
 
 
 // - - - - - - - - - - - - become a meat
+
+.become-meat-form {
+  color: $link;
+}
 .join-us-header {
-    margin-top: 120px;
+    margin-top: 90px;
 }
 
 .meat_photo {
@@ -330,7 +342,11 @@ hr {
 }
 
 #meat_description {
-  height: 146px;
+  height: 170px;
+}
+
+.meats_form {
+  padding: 15px;
 }
 
 .photo_upload {
@@ -340,9 +356,6 @@ hr {
   flex-grow: 1;
 }
 
-.become-meat-form {
-
-}
 
 .form-group.file.optional.meat_photo {
   display: flex;
@@ -352,7 +365,7 @@ hr {
 }
 
 .form-control.string.required, .form-control.string.optional, .form-control.numeric.integer.optional, .form-control.text.optional {
-  border: 1px solid $meat;
-  color: $meat;
+  border: 1.5px solid $gold;
+  margin-bottom: 20px;
+  // max-width: 300px;
 }
-

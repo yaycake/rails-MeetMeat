@@ -2,8 +2,6 @@ class CreateMeaters < ActiveRecord::Migration[5.0]
   def change
     create_table :meaters do |t|
       t.string :photo
-      t.string :last_name
-      t.string :first_name
       t.string :display_name
       t.string :user_category, default: "meeter"
       t.string :gender

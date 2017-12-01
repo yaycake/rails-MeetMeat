@@ -7,6 +7,21 @@
   }
 }
 
+.new_booking_wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top:90px;
+  h1 {
+    color: $gold;
+  }
+
+}
+
+.form-group.integer.optional.booking_meat_id > label {
+  color: $meat;
+}
+
 .booking_container{
   margin-top: 80px;
   background-color: $meat;
@@ -15,7 +30,6 @@
   width: 600px;
   font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
   font-style: normal;
-  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
 }
 
 .logo {
@@ -167,6 +181,8 @@ i {
   color: $link;
 }
 
+
+
 .booking__image {
   border-bottom: 10px solid $meat;
   background-position: center center;
@@ -233,6 +249,34 @@ i {
   text-align: center;
 }
 
+.booking_form_container {
+  max-width: 500px;
+  text-align: center;
+  height: 600px;
+  top: 90px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  border-radius: 2px;
+  background: #bf030a; /* Old browsers */
+  background: -moz-linear-gradient(45deg, #bf030a 0%, #c1272d 45%, #bf3136 100%);
+  background: -webkit-linear-gradient(45deg, #bf030a 0%,#c1272d 45%,#bf3136 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #bf030a 0%,#c1272d 45%,#bf3136 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.new_bookings_button {
+    color: #C1272D;
+    background: linear-gradient(45deg, #edc554 0%, #edc554 51%, #f1e767 100%);
+    border: 1px solid #edc554;
+}
+
+.booking-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .booking_btn-card{
   position: absolute;
   bottom: 208px;
@@ -260,4 +304,9 @@ i {
   a {
     text-decoration: none;
   }
+}
+
+.buttons > .btn.btn-.primary.blue-text > input {
+  background-color: $gold;
+  color: $meat;
 }

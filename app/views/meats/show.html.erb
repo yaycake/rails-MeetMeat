@@ -1,4 +1,4 @@
-<% if @meat.id == current_meater.id %>
+<% if current_meater && @meat.id == current_meater.id %>
   <h1>placeholder for navbar</h1>
   <p>We know that you are really good meat, but don't you think booking yourself is a bit too meaty?</p>
   <%= link_to "look at other meats", meats_path, class: 'btn btn-danger btn-lg'%>

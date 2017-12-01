@@ -101,15 +101,18 @@
 // - - - - - - - - - -- -- - BOOKING INDEX
 .bookings_header {
   text-align: center;
-  margin-top: 100px;
   margin-bottom: 50px;
 }
 
 .bookings_wrapper {
   margin-top: 90px;
-  margin: 0 auto;
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
 }
+
 
 
 
@@ -132,6 +135,7 @@
   flex-direction: column;
   overflow: hidden;
   max-width: 500px;
+  margin: 0 auto;
   margin-bottom: 20px;
   text-align: center;
   position: relative;

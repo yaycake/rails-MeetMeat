@@ -1,45 +1,89 @@
-<div class="container">
-  <% if current_meater.user_category == "meeter" %>
-    <h2>MEETER PROFILE</h2>
-    <h2>YOUR MEETER PROFILE</h2>
-    <img src="<%= @meater.photo %>">
-    <h2><%= @meater.display_name %></h2>
-    <h4><%= current_meater.user_category %></h4>
-    <h5>Email: <%= @meater.email %></h5>
-    <h5>First Name: <%= @meater.first_name %></h5>
-    <h5>Last Name: <%= @meater.last_name %></h5>
-
-    <%= link_to "Edit my Profile", profile_edit_path, class: "btn btn-danger" %>
-  <% else %>
-    <h2>MEAT PROFILE</h2>
-    <div class="profile-content">
-
-      <div class="display">
-        <div class="display-name">
-          <img src="<%= @meater.photo %>">
-          <h1> <%= @meater.display_name %> </h1>
+<% if current_meater.user_category == "meeter" %>
+  <div class="main-profile-wrapper">
+      <div class="profile-image">
+        <%= cl_image_tag @meater.photo, transformation: { gravity: :face } %>
+      </div>
+      <div class="main-profile-content">
+        <div class="meat-display-name">
+          <h2><%= @meater.first_name %> <%= @meater.last_name %></span></h2>
         </div>
-        <div class="profile-text">
-          <p>  <%= @meater.gender %> <%= @meater.age %> </p>
-          <p> <%= @meater.location %> <%= @meater.price %> RMB </p>
-          <h3> Summary </h3>
-          <p> <%= @meater.summary %> </p>
+        <div class="gender_location_age">
+          <span><%= @meater.email %></span>
+          <p class="display"><i class="fa fa-money" aria-hidden="true"></i>  <%= @meater.price %>RMB per hour</p>
+        </div>
+        <div class="self-summary">
+          <h4 class="display">My Self-Summary</h4>
+          <p><%= @meater.summary %></p>
+        </div>
+        <div class="button">
+          <%= link_to "Edit My Profile", profile_edit_path, class: 'profile_book_button'%>
+        </div>
+      </div>
+  </div>
 
-    <!--- - - Description   -->
-      <div class="details">
-        <h2> More about Meat </h2>
-        <p> Height: <%= @meater.height %> Weight: <%= @meater.weight %> </p>
-        <p> Nationality: <%= @meater.nationality %> </p>
-        <p> Occupation: <%= @meater.occupation %> </p>
-        <p> Education: <%= @meater.education %> </p>
-        <p> Hobbies: <%= @meater.hobbies %></p>
-        <div class="description" style="text-align: left">
-          <h2>  Meat Story </h2>
-          <p> <%= @meater.description %> </p>
+<% else %>
+
+  <div class="profile-wrapper">
+    <div class="main-profile-wrapper">
+      <div class="profile-image">
+        <%= cl_image_tag @meater.photo, transformation: { gravity: :face } %>
+      </div>
+      <div class="main-profile-content">
+        <div class="meat-display-name">
+          <h2>Hello, I'm <span class="display"><%= @meater.display_name %>!</span></h2>
+        </div>
+        <div class="gender_location_age">
+          <span>I am a <%= @meater.age %> year old <%= @meater.gender %> in <%= @meater.location %>.</span>
+          <p class="display"><i class="fa fa-money" aria-hidden="true"></i>  <%= @meater.price %>RMB per hour</p>
+        </div>
+        <div class="self-summary">
+          <h4 class="display">My Self-Summary</h4>
+          <p><%= @meater.summary %></p>
+        </div>
+        <div class="button">
+          <%= link_to "Arrange my Meat", profile_meat_edit_path, class: "btn btn-danger" %>
+          <%= button_to "remove my meat", :action => "removemeat", :controller => "meats", :method => :post %>
         </div>
       </div>
     </div>
-    <%= link_to "Arrange my Meat", profile_meat_edit_path, class: "btn btn-danger" %>
-    <%= button_to "remove my meat", :action => "removemeat", :controller => "meats", :method => :post %>
-  <% end %>
-</div>
+  </div>
+  <div class="white_wrapper">
+    <div class="profile-continued">
+    <div class="profile-stats">
+      <h4 class="display">My Stats</h4>
+      <table>
+        <tr>
+          <td class="icon"><i class="fa fa-arrows-v" aria-hidden="true"></i> </td>
+          <td class="stat"> <%= @meater.height %> cm tall</td>
+        </tr>
+        <tr>
+          <td class="icon"><i class="fa fa-child" aria-hidden="true"></i></td>
+          <td class="stat"><%= @meater.weight %> kilos light</td>
+        </tr>
+        <tr>
+          <td class="icon"><i class="fa fa-suitcase" aria-hidden="true"></i></td>
+          <td class="stat" ><%= @meater.occupation %></td>
+        </tr>
+        <tr>
+          <td class="icon"><i class="fa fa-university" aria-hidden="true"></td>
+          <td class="stat"><%= @meater.nationality %></td>
+        </tr>
+        <tr>
+          <td class="icon"><i class="fa fa-flag" aria-hidden="true"></i></td>
+          <td class="stat"><%= @meater.education %></td>
+        </tr>
+        <tr>
+          <td class="icon"><i class="fa fa-heart" aria-hidden="true"></i></td>
+          <td class="stat">I like <%= @meater.hobbies %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="my-story">
+      <h4 class="display">My Meaty, Meaty Story</h4>
+      <p><%= @meater.description %></p>
+    </div>
+  </div>
+
+  </div>
+<% end %>
+

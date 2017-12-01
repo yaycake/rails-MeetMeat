@@ -324,8 +324,35 @@ hr {
     margin-top: 120px;
 }
 
+.meat_photo {
+  margin-bottom: 30px;
+  text-align:center;
+}
+
+#meat_description {
+  height: 146px;
+}
+
+.photo_upload {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
 
 .become-meat-form {
 
+}
+
+.form-group.file.optional.meat_photo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 40px;
+}
+
+.form-control.string.required, .form-control.string.optional, .form-control.numeric.integer.optional, .form-control.text.optional {
+  border: 1px solid $meat;
+  color: $meat;
 }
 

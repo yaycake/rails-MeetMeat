@@ -5,30 +5,33 @@
     <div class="row">
       <div class="col-xs-12 col-sm col-md-4">
         <div class="meats_form">
-            <%= f.input :photo %>
+          <div class="photo_upload">
+            <span><p><strong>Photo: </strong></p></span>
+            <span><%= f.input :photo, label: false %></span>
+            </div>
             <%= f.input :photo_cache, as: :hidden %>
-            <%= f.input :display_name %>
-            <%= f.input :gender %>
-            <%= f.input :location %>
-            <%= f.input :price, label: "RMB per hour" %>
+            <%= f.input :display_name, label: false, placeholder: "Display Name" %>
+            <%= f.input :gender, label: false, placeholder: "Gender" %>
+            <%= f.input :location, label: false, placeholder: "City" %>
+            <%= f.input :price, label: false, placeholder: "RMB per hour" %>
           </div>
 
       </div>
       <div class="col-xs-12 col-sm col-md-4">
         <div class="meats_form">
-            <%= f.input :height %>
-            <%= f.input :weight %>
-            <%= f.input :education %>
-            <%= f.input :occupation %>
-            <%= f.input :hobbies %>
+            <%= f.input :height, label: false, placeholder: "Height in cm" %>
+            <%= f.input :weight, label: false, placeholder: "Weight in kilos" %>
+            <%= f.input :education, label: false, placeholder: "Education" %>
+            <%= f.input :occupation, label: false, placeholder: "Occupation" %>
+            <%= f.input :hobbies, label: false, placeholder: "What are your hobbies?" %>
         </div>
 
       </div>
       <div class="col-xs-12 col-sm col-md-4">
           <div class="meats-form-fields">
 
-            <%= f.input :summary, label: "We know it's hard, but sum up who you are in a couple of sentences."%>
-            <%= f.input :description, label: "Here's your chance to add a bit more depth to your profile." %>
+            <%= f.input :summary, label: false, placeholder: "Self-Summary" %>
+            <%= f.input :description, label: false, placeholder: "Tell us more about yourself." %>
           </div>
         </div>
 

@@ -11,7 +11,11 @@
 
             <div class="booking__content">
                 <div class="booking__title">
-                  <h4>You ordered <%= b.meat.display_name %></h4>
+                  <% if b.meat == current_meater %>
+                    <h4>You have been ordered</h4>
+                  <% else %>
+                    <h4>You ordered <%= b.meat.display_name %></h4>
+                  <% end %>
                 </div>
                 <div class = "location_price">
                   <span><i class="fa fa-map-marker" aria-hidden="true"></i> <%= b.meat.location%></span>

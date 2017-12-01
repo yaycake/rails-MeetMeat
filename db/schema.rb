@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 20171130054452) do
 
   create_table "meaters", force: :cascade do |t|
     t.string   "photo"
-    t.string   "last_name"
-    t.string   "first_name"
     t.string   "display_name"
     t.string   "user_category",          default: "meeter"
     t.string   "gender"
@@ -46,6 +44,8 @@ ActiveRecord::Schema.define(version: 20171130054452) do
     t.datetime "updated_at",                                null: false
     t.string   "email",                  default: "",       null: false
     t.string   "encrypted_password",     default: "",       null: false
+    t.string   "first_name",             default: "",       null: false
+    t.string   "last_name",              default: "",       null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'meaters/omniauth_callbacks'}
 
   root 'meats#index'
-  resources :meaters, only: [:show, :create]
+  resources :meaters, only: [:show, :create, :update]
   resources :meats, only: [:index, :update, :show, :edit] do
     resources :bookings, only: [:new]
   end
@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get "profile" => "meaters#profile"
   get "profile/edit" => "meaters#editprofile"
+  get "profile/meat/edit" => "meats#editmeatprofile"
+  post "profile/removemeat" => "meats#removemeat"
   get '/become-meat' => 'meats#new', as: 'become_meat'
 
   post "meats/:id/edit" => "meats#update"
@@ -19,5 +21,6 @@ Rails.application.routes.draw do
   post "bookings/:id/reject" => "bookings#reject"
   post "bookings/:id/finalize" => "bookings#finalize"
   post "bookings/:id/cancel" => "bookings#cancel"
+
   # # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

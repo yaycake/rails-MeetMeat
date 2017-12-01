@@ -16,7 +16,7 @@ class MeatsController < ApplicationController
     param_hash = { user_category: 'meat' }.merge(meat_parameters)
 
     if @meat.update(param_hash)
-      redirect_to meat_path(current_meater)
+      redirect_to profile_path
     else
       render :new
     end
@@ -26,6 +26,17 @@ class MeatsController < ApplicationController
   end
 
   def show
+  end
+
+  def editmeatprofile
+    @meat = current_meater
+  end
+
+  def removemeat
+    @meat = current_meater
+    @meat.user_category = "meeter"
+    @meat.save
+    redirect_to profile_path
   end
 
   private

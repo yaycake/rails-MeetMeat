@@ -13,7 +13,8 @@ class MeatsController < ApplicationController
   end
 
   def update
-    @meat = current_meater.becomes(Meat)
+    @meat = current_meater
+    # .becomes(Meat)
     param_hash = { user_category: 'meat' }.merge(meat_parameters)
 
     if @meat.update(param_hash)

@@ -1,4 +1,4 @@
-<% if meat.id != current_meater.id %>
+<% if current_meater.nil? || meat.id != current_meater.id %>
   <div class="card">
     <%= link_to meat_path(meat) do %>
     <div class="card__image">

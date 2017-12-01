@@ -35,7 +35,7 @@
         <% elsif current_meater == @booking.meater %>
           <h4>Awaiting the meat's RSVP</h4>
         <% end %>
-      <% elsif @booking.reject? %>
+      <% elsif @booking.rejected? %>
         <% if current_meater == @booking.meat %>
           <h4>You politely declined.</h4>
         <% elsif current_meater == @booking.meater %>
